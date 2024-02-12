@@ -36,7 +36,7 @@ frames['start'] = {
     src: `${NEXT_PUBLIC_URL}/frame-1-forest.webp`,
     aspectRatio: '1:1',
   },
-  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=woods`,
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=start`,
 }),
   1: 'road',
   2: 'woods',
