@@ -116,6 +116,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const queryParams = url.searchParams;
   const frame = queryParams.get('frame');
 
+  if (!frame) {
+    return new NextResponse(
+      'Frame not found',
+      { status: 404 },
+    );
+  }
+
   let accountAddress: string | undefined = '';
   let text: string | undefined = '';
 
@@ -130,22 +137,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     text = message.input;
   }
 
-
-
-
-
   return new NextResponse(
-    getFrameHtmlResponse({
-      buttons: [
-        {
-          label: `🌲☀️ ${text} 🌲🌲`,
-        },
-      ],
-      image: {
-        src: `${NEXT_PUBLIC_URL}/park-1.png`,
-      },
-      postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
-    }),
+    frames[frame].frame,
   );
 }
 
