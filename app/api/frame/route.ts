@@ -5,10 +5,10 @@ import { NEXT_PUBLIC_URL } from '../../config';
 interface HyperFrame {
   label: string;
   frame: string;
-  button1Target: string;
-  button2Target: string;
-  button3Target: string;
-  button4Target: string;
+  1: string;
+  2?: string;
+  3?: string;
+  4?: string;
 }
 
 const frames: Record<string, HyperFrame> = {};
@@ -18,13 +18,13 @@ frames['woods'] = {
   frame: getFrameHtmlResponse({
   buttons: [
     {
-      label: 'Follow the Road',
+      label: 'Road',
     },
     {
-      label: 'Explore the Forest',
+      label: 'Forest',
     },
     {
-      label: 'Enter the Cave',
+      label: 'Cave',
     },
     {
       action: 'link',
@@ -38,10 +38,9 @@ frames['woods'] = {
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=woods`,
 }),
-  button1Target: 'woods',
-  button2Target: 'forest',
-  button3Target: 'cave-1',
-  button4Target: '',
+  1: 'woods',
+  2: 'forest',
+  3: 'cave-1',
 };
 
 frames['cave-1'] = {
@@ -49,7 +48,7 @@ frames['cave-1'] = {
   frame: getFrameHtmlResponse({
   buttons: [
     {
-      label: 'Go deeper...',
+      label: 'Deeper...',
     },
     {
       label: 'Leave',
@@ -61,10 +60,8 @@ frames['cave-1'] = {
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cave-1`,
 }),
-  button1Target: 'cave-2',
-  button2Target: 'forest',
-  button3Target: '',
-  button4Target: '',
+  1: 'cave-2',
+  2: 'forest',
 };
 
 frames['cave-2'] = {
@@ -72,7 +69,7 @@ frames['cave-2'] = {
   frame: getFrameHtmlResponse({
   buttons: [
     {
-      label: 'Go deeper...',
+      label: 'Deeper...',
     },
     {
       label: 'Leave',
@@ -84,10 +81,8 @@ frames['cave-2'] = {
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cave-2`,
 }),
-  button1Target: 'cave-3',
-  button2Target: 'forest',
-  button3Target: '',
-  button4Target: '',
+  1: 'cave-3',
+  2: 'forest',
 };
 
 frames['cave-3'] = {
@@ -104,10 +99,7 @@ frames['cave-3'] = {
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cave-3`,
 }),
-  button1Target: 'forest',
-  button2Target: '',
-  button3Target: '',
-  button4Target: '',
+  1: 'forest',
 };
 
 
@@ -115,13 +107,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const url = new URL(req.url);
   const queryParams = url.searchParams;
   const frame = queryParams.get('frame');
-
-  if (!frame) {
-    return new NextResponse(
-      'Frame not found',
-      { status: 404 },
-    );
-  }
 
   let accountAddress: string | undefined = '';
   let text: string | undefined = '';
@@ -137,8 +122,27 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     text = message.input;
   }
 
+  // TODO: Cleanup this error handling
+  if (!frame) {
+    return new NextResponse(
+      'Frame not found',
+      { status: 404 },
+    );
+  }
+
+  // There should always be a button number
+  if (!message?.button) {
+    return new NextResponse(
+      'Button not found',
+      { status: 404 },
+    );
+  }
+
+  const currentFrame = frames[frame];
+  const nextFrameId = currentFrame[message.button as keyof HyperFrame] as string;
+
   return new NextResponse(
-    frames[frame].frame,
+    frames[nextFrameId].frame,
   );
 }
 
