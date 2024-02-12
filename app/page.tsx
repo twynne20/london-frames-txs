@@ -5,35 +5,34 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Story time!',
+      label: 'Follow the Road',
+    },
+    {
+      label: 'Explore the Forest',
+    },
+    {
+      label: 'Enter the Cave',
     },
     {
       action: 'link',
-      label: 'Link to Google',
+      label: 'TODO Tutorial',
       target: 'https://www.google.com',
-    },
-    {
-      label: 'Redirect to pictures',
-      action: 'post_redirect',
     },
   ],
   image: {
-    src: `${NEXT_PUBLIC_URL}/park-3.png`,
+    src: `${NEXT_PUBLIC_URL}/frame-1-forest.webp`,
     aspectRatio: '1:1',
   },
-  input: {
-    text: 'Tell me a boat story',
-  },
-  postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=woods`,
 });
 
 export const metadata: Metadata = {
-  title: 'zizzamia.xyz',
-  description: 'LFG',
+  title: 'HyperFrames!',
+  description: 'Time is a flat circle.',
   openGraph: {
-    title: 'zizzamia.xyz',
-    description: 'LFG',
-    images: [`${NEXT_PUBLIC_URL}/park-1.png`],
+    title: 'HyperFrames!',
+    description: 'Time is a flat circle.',
+    images: [`${NEXT_PUBLIC_URL}/frame-1-forest.webp`],
   },
   other: {
     ...frameMetadata,
@@ -43,7 +42,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>zizzamia.xyz</h1>
+      <h1>HyperFrames!</h1>
+      <p>TODO: Click here to learn how to make this!</p>
     </>
   );
 }
