@@ -5,17 +5,17 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Follow the Road',
+      label: 'Road',
     },
     {
-      label: 'Explore the Forest',
+      label: 'Woods',
     },
     {
-      label: 'Enter the Cave',
+      label: 'Cave',
     },
     {
       action: 'link',
-      label: 'TODO Tutorial',
+      label: 'TODO',
       target: 'https://www.google.com',
     },
   ],
@@ -23,7 +23,7 @@ const frameMetadata = getFrameMetadata({
     src: `${NEXT_PUBLIC_URL}/frame-1-forest.webp`,
     aspectRatio: '1:1',
   },
-  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=woods`,
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=start`,
 });
 
 export const metadata: Metadata = {

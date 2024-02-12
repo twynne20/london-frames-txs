@@ -13,22 +13,22 @@ interface HyperFrame {
 
 const frames: Record<string, HyperFrame> = {};
 
-frames['woods'] = {
-  label: 'woods',
+frames['start'] = {
+  label: 'start',
   frame: getFrameHtmlResponse({
   buttons: [
     {
       label: 'Road',
     },
     {
-      label: 'Forest',
+      label: 'Woods',
     },
     {
       label: 'Cave',
     },
     {
       action: 'link',
-      label: 'TODO Tutorial',
+      label: 'TODO',
       target: 'https://www.google.com',
     },
   ],
@@ -38,8 +38,8 @@ frames['woods'] = {
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=woods`,
 }),
-  1: 'woods',
-  2: 'forest',
+  1: 'road',
+  2: 'woods',
   3: 'cave-1',
 };
 
@@ -61,7 +61,7 @@ frames['cave-1'] = {
   postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cave-1`,
 }),
   1: 'cave-2',
-  2: 'forest',
+  2: 'start',
 };
 
 frames['cave-2'] = {
@@ -82,7 +82,7 @@ frames['cave-2'] = {
   postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cave-2`,
 }),
   1: 'cave-3',
-  2: 'forest',
+  2: 'start',
 };
 
 frames['cave-3'] = {
@@ -99,7 +99,7 @@ frames['cave-3'] = {
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=cave-3`,
 }),
-  1: 'forest',
+  1: 'start',
 };
 
 
