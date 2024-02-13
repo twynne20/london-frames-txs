@@ -39,8 +39,29 @@ frames['start'] = {
   postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=start`,
 }),
   1: 'road',
-  2: 'woods',
+  2: 'woods-bear',
   3: 'cave-1',
+};
+
+frames['woods-bear'] = {
+  label: 'woods-bear',
+  frame: getFrameHtmlResponse({
+  buttons: [
+    {
+      label: 'Go Back',
+    },
+    {
+      label: 'TODO',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/woods-bear.png`,
+    aspectRatio: '1:1',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=woods-bear`,
+}),
+  1: 'start',
+  2: 'start',
 };
 
 frames['cave-1'] = {
@@ -148,8 +169,242 @@ frames['shack'] = {
   postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=shack`,
 }),
   1: 'road',
-  2: 'inside',
+  2: 'key',
 };
+
+frames['key'] = {
+  label: 'key',
+  frame: getFrameHtmlResponse({
+  buttons: [
+    {
+      label: 'Go Back',
+    },
+    {
+      label: 'TODO',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/key.png`,
+    aspectRatio: '1:1',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=key`,
+}),
+  1: 'shack',
+};
+
+frames['desert-road'] = {
+  label: 'desert-road',
+  frame: getFrameHtmlResponse({
+  buttons: [
+    {
+      label: 'Go Back',
+    },
+    {
+      label: 'Go Forward',
+      },
+    {
+      label: 'Desert',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/desert-road.png`,
+    aspectRatio: '1:1',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=desert-road`,
+}),
+  1: 'road',
+  2: 'mountain-road',
+  3: 'desert-lost-1',
+};
+
+frames['mountain-road'] = {
+  label: 'mountain-road',
+  frame: getFrameHtmlResponse({
+  buttons: [
+    {
+      label: 'Go Back',
+    },
+    {
+      label: 'Go Forward',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/mountain-road.png`,
+    aspectRatio: '1:1',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=mountain-road`,
+}),
+  1: 'desert-road',
+  2: 'mountain-goat',
+};
+
+frames['mountain-goat'] = {
+  label: 'mountain-goat',
+  frame: getFrameHtmlResponse({
+  buttons: [
+    {
+      label: 'Go Back',
+      },
+    {
+      label: 'TODO',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/mountain-goat.png`,
+    aspectRatio: '1:1',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=mountain-goat`,
+}),
+  1: 'mountain-road',
+  2: 'mountain-goat'
+};
+
+frames['desert-lost-1'] = {
+  label: 'desert-lost-1',
+  frame: getFrameHtmlResponse({
+  buttons: [
+      {
+        label: 'North',
+      },
+      {
+        label: 'South',
+      },
+      {
+        label: 'East',
+      },
+      {
+        label: 'West',
+      },
+    ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/desert-lost.png`,
+    aspectRatio: '1:1',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=desert-lost-1`,
+}),
+  1: 'desert-road',
+  2: 'desert-lost-2',
+  3: 'desert-road',
+  4: 'desert-road',
+};
+
+frames['desert-lost-2'] = {
+  label: 'desert-lost-2',
+  frame: getFrameHtmlResponse({
+  buttons: [
+    {
+      label: 'North',
+    },
+    {
+      label: 'South',
+    },
+    {
+      label: 'East',
+    },
+    {
+      label: 'West',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/desert-lost.png`,
+    aspectRatio: '1:1',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=desert-lost-2`,
+}),
+  1: 'desert-road',
+  2: 'desert-road',
+  3: 'desert-road',
+  4: 'desert-lost-3',
+};
+
+frames['desert-lost-3'] = {
+  label: 'desert-lost-3',
+  frame: getFrameHtmlResponse({
+  buttons: [
+    {
+      label: 'North',
+    },
+    {
+      label: 'South',
+    },
+    {
+      label: 'East',
+    },
+    {
+      label: 'West',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/desert-lost.png`,
+    aspectRatio: '1:1',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=desert-lost-3`,
+}),
+  1: 'desert-road',
+  2: 'desert-road',
+  3: 'desert-road',
+  4: 'desert-lost-4',
+};
+
+frames['desert-lost-4'] = {
+  label: 'desert-lost-4',
+  frame: getFrameHtmlResponse({
+  buttons: [
+    {
+      label: 'North',
+    },
+    {
+      label: 'South',
+    },
+    {
+      label: 'East',
+    },
+    {
+      label: 'West',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/desert-lost.png`,
+    aspectRatio: '1:1',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=desert-lost-4`,
+}),
+  1: 'desert-oasis',
+  2: 'desert-road',
+  3: 'desert-road',
+  4: 'desert-road',
+};
+
+frames['desert-oasis'] = {
+  label: 'desert-oasis',
+  frame: getFrameHtmlResponse({
+  buttons: [
+    {
+      label: 'Go Back',
+    },
+    {
+      label: 'TODO',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/desert-oasis.png`,
+    aspectRatio: '1:1',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=desert-oasis`,
+}),
+  1: 'desert-road',
+  2: 'desert-road',
+};
+
+
+function checkForCorrectText(room: string, text: string): boolean {
+  switch (room) {
+    case 'shack':
+      return text === 'All our base are belong to you';
+  }
+  
+  return false;
+}
 
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
@@ -158,7 +413,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const frame = queryParams.get('frame');
 
   let accountAddress: string | undefined = '';
-  let text: string | undefined = '';
+  var text: string | undefined = ''; // Elevate scope to use in frame dictionary
 
   const body: FrameRequest = await req.json();
   const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
