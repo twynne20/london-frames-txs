@@ -102,6 +102,55 @@ frames['cave-3'] = {
   1: 'start',
 };
 
+frames['road'] = {
+  label: 'road',
+  frame: getFrameHtmlResponse({
+  buttons: [
+    {
+      label: 'Go Back',
+    },
+    {
+      label: 'Shack',
+      },
+    {
+      label: 'Forward',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/road.png`,
+    aspectRatio: '1:1',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=road`,
+}),
+  1: 'start',
+  2: 'shack',
+  3: 'desert',
+};
+
+frames['shack'] = {
+  label: 'shack',
+  frame: getFrameHtmlResponse({
+  buttons: [
+    {
+      label: 'Go Back',
+    },
+    {
+      label: 'Door',
+    },
+  ],
+  image: {
+    src: `${NEXT_PUBLIC_URL}/shack.png`,
+    aspectRatio: '1:1',
+    },
+  input: {
+    text: 'What is the password?',
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=shack`,
+}),
+  1: 'road',
+  2: 'inside',
+};
+
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   const url = new URL(req.url);
