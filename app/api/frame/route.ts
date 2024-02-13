@@ -145,7 +145,7 @@ frames['road'] = {
 }),
   1: 'start',
   2: 'shack',
-  3: 'desert',
+  3: 'desert-road',
 };
 
 frames['shack'] = {
