@@ -43,7 +43,7 @@ export default function Page() {
   return (
     <>
       <h1>HyperFrames!</h1>
-      <p>TODO: Click here to learn how to make this!</p>
+      <a href="https://docs.base.org/building-with-base/guides/hyperframes">Click here to learn how to make this!</a>
     </>
   );
 }

@@ -18,6 +18,7 @@ export function getHyperFrame(frame: string, text: string, button: number) {
 
   let nextFrameId: string;
   if (typeof nextFrameIdOrFunction === 'function') {
+    
     nextFrameId = nextFrameIdOrFunction(text);
   } else {
     nextFrameId = nextFrameIdOrFunction as string;
