@@ -8,12 +8,15 @@ import ClickTheButtonABI from '../../_contracts/ClickTheButtonAbi';
 import { CLICK_THE_BUTTON_CONTRACT_ADDR } from '../../config';
 
 async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
+  console.log("req", req);
   const body: FrameRequest = await req.json();
   const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
   
   if (!isValid) {
     return new NextResponse('Message not valid', { status: 500 });
   }
+
+  console.log("body", body);
 
   const data = encodeFunctionData({
     abi: ClickTheButtonABI,
@@ -30,6 +33,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
       value: formatEther(parseGwei('10000')), // 0.00001 ETH
     },
   };
+  console.log("txData", txData);
   return NextResponse.json(txData);
 }
 
