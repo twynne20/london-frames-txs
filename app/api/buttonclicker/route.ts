@@ -24,7 +24,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
   const data = encodeFunctionData({
     abi: ClickTheButtonABI,
     functionName: 'clickTheButton',
-    args: [],
   });
 
   const txData: FrameTransactionResponse = {
