@@ -404,6 +404,7 @@ addHyperFrame('desert-oasis', {
 });
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
+  console.log("Frame endpoint");
   const url = new URL(req.url);
   const queryParams = url.searchParams;
   const frame = queryParams.get('frame');
