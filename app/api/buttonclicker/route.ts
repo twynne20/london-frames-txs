@@ -8,7 +8,9 @@ import ClickTheButtonABI from '../../_contracts/ClickTheButtonAbi';
 import { CLICK_THE_BUTTON_CONTRACT_ADDR } from '../../config';
 
 async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
-  console.log("Here");
+  console.log('Here');
+  return new NextResponse('Sanity check', { status: 200 });
+  
   console.log("req", req);
   const body: FrameRequest = await req.json();
   const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
