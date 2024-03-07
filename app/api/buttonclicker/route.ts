@@ -24,6 +24,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
   const data = encodeFunctionData({
     abi: ClickTheButtonABI,
     functionName: 'clickTheButton',
+    args: [],
   });
 
   const txData: FrameTransactionResponse = {
@@ -33,7 +34,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
       abi: [],
       data,
       to: CLICK_THE_BUTTON_CONTRACT_ADDR,
-      value: formatEther(parseGwei('10000')), // 0.00001 ETH
+      value: parseGwei('10000').toString(), // 0.00001 ETH
     },
   };
   console.log("txData", txData);
