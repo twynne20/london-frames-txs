@@ -22,7 +22,7 @@ const frameMetadata = getFrameMetadata({
   input: {
     text: 'Don\'t click the button!',
   },
-  postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+  postUrl: `${NEXT_PUBLIC_URL}/api/buttonclicker`,
 });
 
 export const metadata: Metadata = {
