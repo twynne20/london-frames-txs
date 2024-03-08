@@ -59,13 +59,19 @@ export default async function Page() {
     functionName: 'getAllClicks',
   }) as Player[];
 
+  console.log("players", players);
+
   // Sort players by clicks
   players.sort((a, b) => parseInt(b.clicks) - parseInt(a.clicks));
+
+  console.log("players sorted", players);
 
   const list = players.map((player, index) => {
     return `${index + 1}. ${player.user} - ${player.clicks}`;
   }
   ).join('\n');
+
+  console.log("list", list);
   
   return (
     <>
