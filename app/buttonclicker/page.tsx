@@ -1,5 +1,3 @@
-'use client';
-
 import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
 import { NEXT_PUBLIC_URL } from '../config';
@@ -7,7 +5,7 @@ import { createPublicClient, encodeFunctionData, http } from 'viem';
 import { base } from 'viem/chains';
 import ClickTheButtonABI from '../_contracts/ClickTheButtonAbi';
 import { CLICK_THE_BUTTON_CONTRACT_ADDR } from '../config';
-import { useEffect, useState } from 'react';
+import { get } from 'http';
 
 type Player = {
   user: string;
@@ -51,14 +49,14 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const [list, setList] = useState<React.JSX.Element[]>([]);
+  let list;
 
-  const publicClient = createPublicClient({
-    chain: base,
-    transport: http(),
-  });
+  async function getPlayers() {
+    const publicClient = createPublicClient({
+      chain: base,
+      transport: http(),
+    });
 
-  async function fetchPlayers() {
     const players = (await publicClient.readContract({
       address: CLICK_THE_BUTTON_CONTRACT_ADDR,
       abi: ClickTheButtonABI,
@@ -68,22 +66,21 @@ export default async function Page() {
     // Sort players by clicks
     players.sort((a, b) => parseInt(b.clicks) - parseInt(a.clicks));
 
-    const updatedList: React.JSX.Element[] = players.map((player, index) => {
+    const list = players.map((player, index) => {
       return <div>{`${index + 1}. ${player.user} - ${player.clicks}`}</div>;
     });
 
-    setList(updatedList);
+    return list;
   }
-
-  useEffect(() => {
-    fetchPlayers();
-  }, []);
+  
+  list = getPlayers();
 
   return (
     <>
       <h1>Leader Board</h1>
       <hr />
       <div>{list}</div>
+      <button onClick={() => { list = getPlayers() }}>Refresh</button>
     </>
   );
 }
