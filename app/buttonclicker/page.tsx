@@ -65,12 +65,12 @@ export default async function Page() {
   const list = players.map((player, index) => {
     return `<div>${index + 1}. ${player.user} - ${player.clicks}</div>`;
   }
-  ).join('\n');
+  );
 
   return (
     <>
       <h1>Leader Board</h1>
-      <p>{list}</p>
+      <div>{list}</div>
     </>
   );
 }
