@@ -5,7 +5,7 @@ import { createPublicClient, encodeFunctionData, http } from 'viem';
 import { base } from 'viem/chains';
 import ClickTheButtonABI from '../_contracts/ClickTheButtonAbi';
 import { CLICK_THE_BUTTON_CONTRACT_ADDR } from '../config';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Player = {
   user: string;
@@ -73,7 +73,10 @@ export default async function Page() {
     setList(updatedList);
   }
 
-  
+  useEffect(() => {
+    fetchPlayers();
+  }, []);
+
   return (
     <>
       <h1>Leader Board</h1>
