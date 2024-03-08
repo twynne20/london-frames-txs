@@ -63,8 +63,8 @@ export default async function Page() {
   players.sort((a, b) => parseInt(b.clicks) - parseInt(a.clicks));
 
   const list = players.map((player, index) => {
-    return `<div>${index + 1}. ${player.user} - ${player.clicks}</div>`;
-  }
+      return <div>{`${index + 1}. ${player.user} - ${player.clicks}`}</div>;
+    }
   );
 
   return (
