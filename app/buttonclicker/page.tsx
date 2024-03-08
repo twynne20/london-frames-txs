@@ -1,6 +1,15 @@
 import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
 import { NEXT_PUBLIC_URL } from '../config';
+import { createPublicClient, encodeFunctionData, http } from 'viem';
+import { base } from 'viem/chains';
+import ClickTheButtonABI from '../_contracts/ClickTheButtonAbi';
+import { CLICK_THE_BUTTON_CONTRACT_ADDR } from '../config';
+
+type Player = {
+  user: string;
+  clicks: string;
+};
 
 const frameMetadata = getFrameMetadata({
   buttons: [
@@ -38,11 +47,27 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() {
+export default async function Page() {
+  const publicClient = createPublicClient({
+    chain: base,
+    transport: http(),
+  });
+
+  const players = await publicClient.readContract({
+    address: CLICK_THE_BUTTON_CONTRACT_ADDR,
+    abi: ClickTheButtonABI,
+    functionName: 'getAllClicks',
+  }) as Player[];
+
+  const list = players.map((player, index) => {
+    return `${index + 1}. ${player.user} - ${player.clicks}`;
+  }
+  ).join('\n');
+  
   return (
     <>
-      <h1>Leaderboard</h1>
-      <p>TODO</p>
+      <h1>Leader Board</h1>
+      <p>{list}</p>
     </>
   );
 }
