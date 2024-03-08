@@ -70,6 +70,7 @@ export default async function Page() {
   return (
     <>
       <h1>Leader Board</h1>
+      <hr />
       <div>{list}</div>
     </>
   );
