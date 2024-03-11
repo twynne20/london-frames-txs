@@ -72,7 +72,6 @@ export default async function Page() {
       <h1>Leader Board</h1>
       <hr />
       <div>{list}</div>
-      <hr />
     </>
   );
 }
