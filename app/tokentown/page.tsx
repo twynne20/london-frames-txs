@@ -24,14 +24,14 @@ const frameMetadata = getFrameMetadata({
       target: `${NEXT_PUBLIC_URL}/buttonclicker`,
     },
     {
-      action: 'link',
-      label: 'Test3',
-      target: `${NEXT_PUBLIC_URL}/buttonclicker`,
+        action: 'link',
+        label: 'Test5',
+        target: `${NEXT_PUBLIC_URL}/buttonclicker`,
     },
     {
-      action: 'link',
-      label: 'Test4',
-      target: `${NEXT_PUBLIC_URL}/buttonclicker`,
+        action: 'link',
+        label: 'Test 4',
+        target: `${NEXT_PUBLIC_URL}/buttonclicker`,
     },
   ],
   image: {
