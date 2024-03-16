@@ -15,12 +15,12 @@ const frameMetadata = getFrameMetadata({
   buttons: [
     {
       action: 'tx',
-      label: 'Click the Button',
+      label: 'Get Player Status',
       target: `${NEXT_PUBLIC_URL}/api/buttonclicker`,
     },
     {
       action: 'link',
-      label: 'Leaderboard',
+      label: 'Game Status',
       target: `${NEXT_PUBLIC_URL}/buttonclicker`,
     },
   ],
@@ -29,17 +29,17 @@ const frameMetadata = getFrameMetadata({
     aspectRatio: '1:1',
   },
   input: {
-    text: 'Don\'t click the button!',
+    text: 'Enter address of the player!',
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/aftertx`,
 });
 
 export const metadata: Metadata = {
-  title: 'Click the Button',
-  description: "Don't click the button!",
+  title: 'Token Town',
+  description: "Enter address of the player!",
   openGraph: {
-    title: 'Click the Button',
-    description: "Don't click the button!",
+    title: 'Token Town Game Info',
+    description: "Find token town game info!",
     images: [`${NEXT_PUBLIC_URL}/TokenTown.png`],
   },
   other: {
