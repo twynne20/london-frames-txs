@@ -5,34 +5,33 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Road',
-    },
-    {
-      label: 'Woods',
-    },
-    {
-      label: 'Cave',
+      action: 'tx',
+      label: 'Click the Button',
+      target: `${NEXT_PUBLIC_URL}/api/buttonclicker`,
     },
     {
       action: 'link',
-      label: 'TODO',
-      target: 'https://www.google.com',
+      label: 'Leaderboard',
+      target: `${NEXT_PUBLIC_URL}/buttonclicker`,
     },
   ],
   image: {
-    src: `${NEXT_PUBLIC_URL}/frame-1-forest.webp`,
+    src: `${NEXT_PUBLIC_URL}/button.webp`,
     aspectRatio: '1:1',
   },
-  postUrl: `${NEXT_PUBLIC_URL}/api/frame?frame=start`,
+  input: {
+    text: "Don't click the button!",
+  },
+  postUrl: `${NEXT_PUBLIC_URL}/api/aftertx`,
 });
 
 export const metadata: Metadata = {
-  title: 'HyperFrames!',
-  description: 'Time is a flat circle.',
+  title: 'Click the Button',
+  description: "Don't click the button!",
   openGraph: {
-    title: 'HyperFrames!',
-    description: 'Time is a flat circle.',
-    images: [`${NEXT_PUBLIC_URL}/frame-1-forest.webp`],
+    title: 'Click the Button',
+    description: "Don't click the button!",
+    images: [`${NEXT_PUBLIC_URL}/button.webp`],
   },
   other: {
     ...frameMetadata,
@@ -42,8 +41,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>HyperFrames!</h1>
-      <a href="https://docs.base.org/building-with-base/guides/hyperframes">Click here to learn how to make this!</a>
+      <h1>Leaderboard</h1>
+      <p>TODO</p>
     </>
   );
 }
